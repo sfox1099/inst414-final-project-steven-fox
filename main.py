@@ -20,25 +20,25 @@ def main():
     Returns:
         None
     """
-    # Step 1: Extract data
+    # Step 1: Extract data | At current stage see extract.py
     file_path = 'data/extracted/sample_data.csv'
     raw_data = extract(file_path)
     
-    # Step 2: Transform data
+    # Step 2: Transform data | At current stage see transform.py
     processed_data = transform(raw_data)
     
-    # Step 3: Load data
+    # Step 3: Load data| At current stage see load.py
     processed_file_path = 'data/processed/processed_data.csv'
     load(processed_data, processed_file_path)
     
-    # Step 4: Build and train model
+    # Step 4: Build and train model| At current stage see model.py
     X, y = prepare_data(processed_data)
     model, X_test, y_test = train_model(X, y)
     
-    # Step 5: Evaluate model
+    # Step 5: Evaluate model| At current stage see evaluate.py
     accuracy, precision, recall, conf_matrix, class_report = evaluate_model(model, X_test, y_test)
     
-    # Step 6: Create visualizations
+    # Step 6: Create visualizations| At current stage see visualization.py
     plot_feature_distributions(processed_data)
     plot_correlation_matrix(processed_data)
     plot_model_performance(conf_matrix)
