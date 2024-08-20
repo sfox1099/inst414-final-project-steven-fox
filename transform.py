@@ -1,6 +1,7 @@
 import pandas as pd
+import os
 
-def transform():
+def transform(data):
     """
     Transforms the data by performing assertion tests to ensure data cleanliness.
 
@@ -11,11 +12,12 @@ def transform():
         pd.DataFrame: The transformed data after assertion checks.
     """
     assert not data.isnull().values.any()
-    assert data['unique_id'].dtype == 'int64'
-    assert data['product_id'].dtype == 'object'
-    assert data['type'].dtype == 'object'
-    assert data['rotational_speed'].dtype == 'int64'
-    assert data['torque'].dtype == 'float64'
-    assert data['tool_wear'].dtype == 'int64'
-    assert data['target'].dtype == 'int64'
+    assert data['UDI'].dtype == 'int64'
+    assert data['Product ID'].dtype == 'object'
+    assert data['Type'].dtype == 'object'
+    assert data['Rotational speed [rpm]'].dtype == 'int64'
+    assert data['Torque [Nm]'].dtype == 'float64'
+    assert data['Tool wear [min]'].dtype == 'int64'
+    assert data['Target'].dtype == 'int64'
+    
     return data

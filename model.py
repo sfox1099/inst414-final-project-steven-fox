@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, classification_report
 
+
 def prepare_data(data):
     """
     Prepares the data for training by splitting it into features and target.
@@ -14,10 +15,14 @@ def prepare_data(data):
         X (pd.DataFrame): Features.
         y (pd.Series): Target.
     """
-    X = data.drop('target', axis=1)
-    y = data['target']
+    # Handle categorical features if needed
+    X = data.drop('Target', axis=1)
+    y = data['Target']
+    
+    # Example: Convert categorical columns to numerical if present
+    X = pd.get_dummies(X, drop_first=True)
+    
     return X, y
-
 
 def train_model(X, y):
     """
